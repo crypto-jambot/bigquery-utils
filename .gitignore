@@ -102,3 +102,9 @@ dist
 
 # TernJS port file
 .tern-port
+
+# Production Ignore
+package-lock.json
+
+# IDE configurations
+.idea/
