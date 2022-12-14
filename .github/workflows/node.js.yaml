@@ -8,10 +8,13 @@ jobs:
   build:
     if: "!contains(github.event.commits[0].author.name, 'GitHub Actions Bot')"
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      packages: write
 
     strategy:
       matrix:
-        node-version: [12, 14, 16]
+        node-version: [16.x]
         # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
 
     steps:
@@ -20,9 +23,11 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node-version }}
-          cache: "npm"
+          registry-url: 'https://npm.pkg.github.com'
+            # Defaults to the user or organization that owns the workflow file
+          scope: '@maxwellburdette'
       - name: Install dependencies
-        run: npm ci --production --engine-strict --ignore-scripts --no-package-lock
+        run: npm install --production --engine-strict --ignore-scripts --no-package-lock
       # - name: Run tests
       #   run: npm test
       - name: Setup git config
@@ -36,3 +41,6 @@ jobs:
       - name: Push tag
         run: git push --tags
       - name: publish
+        run: npm publish
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
