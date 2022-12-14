@@ -29,8 +29,7 @@
   },
   "homepage": "https://github.com/maxwellburdette/biquery-utils#readme",
   "dependencies": {
-    "@google-cloud/bigquery": "^6.0.3",
-    "@maxwellburdette/biquery-utils": "^1.0.0"
+    "@google-cloud/bigquery": "^6.0.3"
   },
   "devDependencies": {
     "nodemon": "^2.0.20",
