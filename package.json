@@ -1,0 +1,39 @@
+{
+  "name": "@maxwellburdette/biquery-utils",
+  "version": "1.0.0-0",
+  "description": "Library to add ease to BigQuery queries",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist",
+    "!dist/**/*.map"
+  ],
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/"
+  },
+  "scripts": {
+    "start": "node .",
+    "build": "tsc -p tsconfig.build.json",
+    "dev": "nodemon src/server.ts",
+    "patch": "npm vers"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/maxwellburdette/biquery-utils.git"
+  },
+  "keywords": [],
+  "author": "JAM",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/maxwellburdette/biquery-utils/issues"
+  },
+  "homepage": "https://github.com/maxwellburdette/biquery-utils#readme",
+  "dependencies": {
+    "@google-cloud/bigquery": "^6.0.3",
+    "@maxwellburdette/biquery-utils": "^1.0.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.20",
+    "ts-node": "^10.9.1"
+  }
+}
