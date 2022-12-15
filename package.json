@@ -1,6 +1,6 @@
 {
-  "name": "@maxwellburdette/bigquery-utils",
-  "version": "1.0.2",
+  "name": "@crypto-jambot/bigquery-utils",
+  "version": "1.0.0-0",
   "description": "Library to add ease to BigQuery queries",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
@@ -20,7 +20,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/maxwellburdette/bigquery-utils.git"
+    "url": "git+https://github.com/crypto-jambot/bigquery-utils.git"
   },
   "keywords": [],
   "author": "JAM",
