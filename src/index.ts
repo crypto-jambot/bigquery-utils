@@ -1,1 +1,5 @@
-export { BigQueryUtilOptions, BigQueryUtil } from "./bigqueryutil";
+export {
+  BigQueryUtilOptions,
+  BigQueryUtil,
+  InsertOptions,
+} from "./bigqueryutil";
