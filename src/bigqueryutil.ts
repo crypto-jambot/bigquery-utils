@@ -1,11 +1,17 @@
 import jam from "./types";
-import { BigQuery } from "@google-cloud/bigquery";
+import { BigQuery, RowMetadata } from "@google-cloud/bigquery";
 
 /**
  * Options required for BigQueryUtils class instantiation
  */
 export interface BigQueryUtilOptions {
   projectId: string;
+}
+
+export interface InsertOptions {
+  dataset: string;
+  table: string;
+  data: RowMetadata;
 }
 
 let client: BigQuery;
@@ -23,5 +29,10 @@ export class BigQueryUtil {
     const [jobs] = await client.createQueryJob({ query, location: "US" });
     const [rows] = await jobs.getQueryResults();
     return rows;
+  }
+
+  async insert(options: jam.InsertOptions): Promise<void> {
+    const { dataset, table, data } = options;
+    await client.dataset(dataset).table(table).insert(data);
   }
 }
