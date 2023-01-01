@@ -1,26 +1,26 @@
-import { RowMetadata } from "@google-cloud/bigquery";
+import { InsertRowsOptions, RowMetadata } from "@google-cloud/bigquery";
 declare namespace jam {
-  type BigQueryUtilOptions = {
     /**
-     * Required projectId. Not project number.
+     * Options for inserting data into BigQuery
      */
-    projectId: string;
-  };
-
-  type InsertOptions = {
-    /**
-     * Name of BigQuery dataset
-     */
-    dataset: string;
-    /**
-     * Name of BigQuery table
-     */
-    table: string;
-    /**
-     * Data to be inserted
-     */
-    data: RowMetadata;
-  };
+    type InsertOptions = {
+        /**
+         * Name of BigQuery dataset
+         */
+        dataset: string;
+        /**
+         * Name of BigQuery table
+         */
+        table: string;
+        /**
+         * Data to be inserted
+         */
+        data: RowMetadata | RowMetadata[];
+        /**
+         * Additional optional options for BigQuery insert
+         */
+        options?: InsertRowsOptions;
+    };
 }
 
 export default jam;
