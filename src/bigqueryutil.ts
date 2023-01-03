@@ -52,8 +52,8 @@ export class BigQueryUtil {
         const { length } = rows;
         if (length > SIZE_LIMIT) {
             const extraRowsConstant = length - SIZE_LIMIT;
-            await this.#executeInsert(rows.slice(extraRowsConstant), options);
-            await this.#batchInsert(rows.slice(-extraRowsConstant), options);
+            await this.#executeInsert(rows.slice(0, SIZE_LIMIT), options);
+            await this.#batchInsert(rows.slice(SIZE_LIMIT), options);
             return;
         }
         await this.#executeInsert(rows, options);
