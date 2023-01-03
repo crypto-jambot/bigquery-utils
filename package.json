@@ -1,6 +1,6 @@
 {
   "name": "@crypto-jambot/bigquery-utils",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "Library to add ease to BigQuery queries",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
